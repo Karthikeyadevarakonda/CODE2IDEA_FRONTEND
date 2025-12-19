@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import HeroIllustration from "../assets/Hero.svg";
-import { Code2, Trophy } from "lucide-react";
+import { Trophy } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function Hero() {
   return (
@@ -45,12 +46,16 @@ export default function Hero() {
             </p>
 
             <div className="flex flex-col gap-4 sm:flex-row sm:justify-center md:justify-start">
-              <button className="rounded-xl bg-gradient-to-r from-[#3f51b5] to-[#5c6bc0] px-8 py-4 text-base font-semibold text-white shadow-xl transition hover:scale-105 hover:shadow-2xl">
-                Get Started
-              </button>
-              <button className="rounded-xl border border-slate-300 bg-white/70 px-8 py-4 text-base font-semibold text-slate-700 backdrop-blur transition hover:bg-white">
-                Explore Projects
-              </button>
+              <Link to={"/register"}>
+                <button className="rounded-xl bg-gradient-to-r from-[#3f51b5] to-[#5c6bc0] px-8 py-4 text-base font-semibold text-white shadow-xl transition hover:scale-105 hover:shadow-2xl">
+                  Get Started
+                </button>
+              </Link>
+              <Link to={"/login"}>
+                <button className="rounded-xl border border-slate-300 bg-white/70 px-8 py-4 text-base font-semibold text-slate-700 backdrop-blur transition hover:bg-white">
+                  Explore Projects
+                </button>
+              </Link>
             </div>
           </motion.div>
 
