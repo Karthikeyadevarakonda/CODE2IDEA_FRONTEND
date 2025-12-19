@@ -29,7 +29,7 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 p-6 md:p-10 space-y-8">
+    <div className="min-h-screen bg-gray-50 p-2 md:p-10 space-y-8">
       <StudentHeader student={data.student} />
 
       {/* LIVE EVENTS BANNERS */}
@@ -45,7 +45,7 @@ export default function Dashboard() {
       </div>
 
       <EnrolledEvents events={data.enrolledEvents} />
-      <Achievements achievements={data.achievements} />
+      <Achievements achievements={data.achievements} name={data.student.name} />
       <PastIdeas />
     </div>
   );

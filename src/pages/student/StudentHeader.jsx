@@ -63,7 +63,9 @@ export default function StudentHeader({ student }) {
       {/* Simplified Mobile Header */}
       <div className="flex md:hidden items-center justify-between gap-4">
         <div className="flex flex-col">
-          <h1 className="text-xl font-bold text-gray-800">{student.name}</h1>
+          <h1 className="text-xl font-bold text-gray-800">
+            {"Hi 👋" + student.name}
+          </h1>
           <span className="text-sm text-emerald-600 flex items-center gap-1">
             🟢 Active
           </span>

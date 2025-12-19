@@ -1,0 +1,67 @@
+
+{
+    "pastIdeasRepository": [
+  {
+    "ideaId": 150,
+    "title": "IoT Waste Management",
+    "contestYear": 2023,
+    "department": "ECE",
+    "categories": ["IoT", "Smart City"],
+
+    "description": "This project focuses on building an IoT-based smart waste management system to optimize garbage collection in urban areas. Smart bins equipped with ultrasonic sensors monitor waste levels in real time and transmit data to a central dashboard. The system helps municipal authorities reduce fuel consumption, prevent overflow, and improve cleanliness by enabling data-driven waste collection routes.",
+
+    "attachments": [
+      {
+        "id": 1,
+        "name": "Project Abstract",
+        "type": "pdf",
+        "url": "/files/iot-waste-management-abstract.pdf"
+      },
+      {
+        "id": 2,
+        "name": "System Architecture Diagram",
+        "type": "pdf",
+        "url": "/files/iot-waste-management-architecture.pdf"
+      },
+      {
+        "id": 3,
+        "name": "Final Presentation",
+        "type": "ppt",
+        "url": "/files/iot-waste-management-presentation.pptx"
+      }
+    ]
+  },
+
+  {
+    "ideaId": 151,
+    "title": "AI Mental Health Assistant",
+    "contestYear": 2024,
+    "department": "CSE",
+    "categories": ["AI", "HealthTech"],
+
+    "description": "The AI Mental Health Assistant is a conversational chatbot designed to provide early mental health support using Natural Language Processing and Machine Learning. It analyzes user sentiment, detects stress patterns, and provides personalized coping strategies. The system is not a replacement for therapy but acts as a first-level emotional support tool, especially for students.",
+
+    "attachments": [
+      {
+        "id": 1,
+        "name": "Project Proposal",
+        "type": "pdf",
+        "url": "/files/ai-mental-health-proposal.pdf"
+      },
+      {
+        "id": 2,
+        "name": "Model Training Report",
+        "type": "pdf",
+        "url": "/files/ai-mental-health-model-report.pdf"
+      },
+      {
+        "id": 3,
+        "name": "Demo Screenshots",
+        "type": "zip",
+        "url": "/files/ai-mental-health-demo.zip"
+      }
+    ]
+  }
+]
+
+}
