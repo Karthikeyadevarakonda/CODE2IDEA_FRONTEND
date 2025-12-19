@@ -22,7 +22,9 @@ export default function SummaryCard({ title, value }) {
 
       <div>
         <p className="text-gray-500 text-sm font-semibold">{title}</p>
-        <p className="text-3xl font-extrabold text-gray-800">{value}</p>
+        <p className="text-xl sm:text-3xl font-extrabold text-gray-800">
+          {value}
+        </p>
       </div>
     </div>
   );

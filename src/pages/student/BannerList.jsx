@@ -32,7 +32,7 @@ export default function BannerList({ banners, onBannerClick }) {
         {banners.map((b) => (
           <div
             key={b.contestId}
-            className="min-w-full h-[240px] md:h-[320px] relative"
+            className="min-w-full h-[120px] sm:h-[240px] md:h-[320px] relative"
             onClick={() => onBannerClick?.(b)}
           >
             <img
@@ -57,7 +57,7 @@ export default function BannerList({ banners, onBannerClick }) {
         {/* Left arrow SVG */}
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6 text-gray-700"
+          className="h-3 w-3 sm:h-6 sm:w-6 text-gray-700"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -78,7 +78,7 @@ export default function BannerList({ banners, onBannerClick }) {
         {/* Right arrow SVG */}
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6 text-gray-700"
+          className="h-3 w-3 sm:h-6 sm:w-6 text-gray-700"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -94,7 +94,7 @@ export default function BannerList({ banners, onBannerClick }) {
           <button
             key={idx}
             onClick={() => setCurrent(idx)}
-            className={`h-2 w-2 rounded-full transition ${
+            className={`h-1 w-1 sm:h-2 sm:w-2 rounded-full transition ${
               idx === current ? "bg-gray-800" : "bg-gray-400"
             }`}
           />
