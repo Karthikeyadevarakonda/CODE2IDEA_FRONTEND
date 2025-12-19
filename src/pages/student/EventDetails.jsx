@@ -1,160 +1,175 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import CustomDropdown from "./components/CustomDropdown";
+import { AiOutlineLike, AiFillLike, AiOutlineEye } from "react-icons/ai";
+import EnrollmentForm from "./EnrollmentForm";
+import IdeaDescriptionModal from "./IdeaDescriptionModel";
 
 export default function EventDetails({ event }) {
-  const [showEnrollForm, setShowEnrollForm] = useState(true);
-  const [formData, setFormData] = useState({
-    title: "",
-    description: "",
-    category: "",
-    attachments: [],
-  });
+  const [search, setSearch] = useState("");
+  const [category, setCategory] = useState("");
+  const [ideas, setIdeas] = useState(event.ideas || []);
+  const [selectedIdea, setSelectedIdea] = useState(null);
 
-  const fileInputRef = useRef(null);
-
-  const handleChange = (e) => {
-    const { name, value, files } = e.target;
-    if (files) {
-      setFormData((prev) => ({
-        ...prev,
-        attachments: [...prev.attachments, ...Array.from(files)],
-      }));
-    } else {
-      setFormData((prev) => ({ ...prev, [name]: value }));
-    }
+  /* ---------- VOTE TOGGLE ---------- */
+  const toggleVote = (id) => {
+    setIdeas((prev) =>
+      prev.map((idea) =>
+        idea.ideaId === id
+          ? {
+              ...idea,
+              hasVoted: !idea.hasVoted,
+              votes: idea.hasVoted ? idea.votes - 1 : idea.votes + 1,
+            }
+          : idea
+      )
+    );
   };
 
-  const handleDrop = (e) => {
-    e.preventDefault();
-    setFormData((prev) => ({
-      ...prev,
-      attachments: [...prev.attachments, ...Array.from(e.dataTransfer.files)],
-    }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Enrollment Data:", formData);
-    alert("Enrollment submitted!");
-    setFormData({
-      title: "",
-      description: "",
-      category: "",
-      attachments: [],
-    });
-  };
-
-  const removeFile = (index) => {
-    setFormData((prev) => ({
-      ...prev,
-      attachments: prev.attachments.filter((_, i) => i !== index),
-    }));
-  };
+  const filteredIdeas = ideas.filter(
+    (idea) =>
+      idea.title.toLowerCase().includes(search.toLowerCase()) &&
+      (category ? idea.category === category : true)
+  );
 
   return (
-    <div className="bg-white rounded-3xl shadow-2xl p-6 md:p-8 transition-all animate-fadeIn">
-      <h2 className="text-2xl font-bold text-gray-800 mb-4">{event.message}</h2>
-      <p className="text-gray-600 mb-6">
-        Event ID: {event.contestId} • Status: {event.type}
-      </p>
+    <div className="bg-white rounded-3xl shadow-2xl p-6 md:p-10 space-y-10">
+      {/* ================= EVENT HEADER ================= */}
+      <div>
+        <h1 className="text-3xl font-bold text-gray-900">{event.title}</h1>
+        <p className="text-gray-600 mt-2">{event.description}</p>
 
-      {showEnrollForm && (
-        <form onSubmit={handleSubmit} className="space-y-5">
-          <div>
-            <label className="block text-gray-700 font-medium mb-1">
-              Title
-            </label>
-            <input
-              name="title"
-              value={formData.title}
-              onChange={handleChange}
-              className="w-full border border-gray-300 rounded-lg p-3 focus:ring-emerald-500 focus:border-emerald-500"
-              required
-            />
-          </div>
+        {/* Meta */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
+          <Meta label="Start" value={event.eventMeta.startDate} />
+          <Meta label="End" value={event.eventMeta.endDate} />
+          <Meta label="Deadline" value={event.eventMeta.submissionDeadline} />
+          <Meta
+            label="Registrations"
+            value={event.eventMeta.totalRegistrations}
+          />
+        </div>
 
-          <div>
-            <label className="block text-gray-700 font-medium mb-1">
-              Description
-            </label>
-            <textarea
-              name="description"
-              value={formData.description}
-              onChange={handleChange}
-              className="w-full border border-gray-300 rounded-lg p-3 focus:ring-emerald-500 focus:border-emerald-500"
-              rows="4"
-              required
-            />
-          </div>
+        {/* Domains */}
+        <div className="flex flex-wrap gap-2 mt-4">
+          {event.eventMeta.domains.map((d) => (
+            <span
+              key={d}
+              className="px-3 py-1 text-sm rounded-full bg-emerald-50 text-emerald-700 font-medium"
+            >
+              {d}
+            </span>
+          ))}
+        </div>
+      </div>
 
-          <div>
+      {/* ================= IDEAS SECTION ================= */}
+      <div>
+        <h2 className="text-2xl font-bold text-gray-800 mb-4">
+          Submitted Ideas
+        </h2>
+
+        {/* Search + Filter */}
+        <div className="flex flex-col md:flex-row gap-3 mb-6 items-center">
+          {/* Search Input */}
+          <input
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            placeholder="Search ideas..."
+            className="w-full md:w-1/2 border border-gray-400 rounded-lg px-4 py-2 text-sm focus:ring-emerald-500 focus:border-emerald-500 h-10"
+          />
+
+          {/* Category Dropdown */}
+          <div className="w-full md:w-1/3">
             <CustomDropdown
               label="Category"
-              options={[
-                "AI",
-                "IoT",
-                "Smart City",
-                "HealthTech",
-                "FullStack",
-                "RealTime",
-              ]}
-              value={formData.category}
-              onChange={(val) =>
-                setFormData((prev) => ({ ...prev, category: val }))
-              }
+              options={event.eventMeta.domains}
+              value={category}
+              onChange={setCategory}
+              compact
             />
           </div>
 
-          <div>
-            <label className="block text-gray-700 font-medium mb-1">
-              Attachments
-            </label>
-            <div
-              onDrop={handleDrop}
-              onDragOver={(e) => e.preventDefault()}
-              className="w-full border-2 border-dashed border-gray-300 rounded-lg p-4 text-center cursor-pointer hover:border-emerald-500 transition"
-              onClick={() => fileInputRef.current.click()}
-            >
-              Drag & drop files here or click to upload
-              <input
-                ref={fileInputRef}
-                type="file"
-                multiple
-                onChange={handleChange}
-                className="hidden"
-              />
-            </div>
-            {formData.attachments.length > 0 && (
-              <ul className="mt-2 space-y-1">
-                {formData.attachments.map((file, index) => (
-                  <li
-                    key={index}
-                    className="flex justify-between items-center bg-gray-100 p-2 rounded"
-                  >
-                    <span>{file.name}</span>
-                    <button
-                      type="button"
-                      onClick={() => removeFile(index)}
-                      className="text-red-500 hover:text-red-700 font-bold"
-                    >
-                      ✖
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
+          {/* Clear Button */}
+          <button
+            onClick={() => {
+              setSearch("");
+              setCategory("");
+            }}
+            className="bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg px-20 sm:px-4 py-2 h-10 text-sm transition"
+          >
+            Clear
+          </button>
+        </div>
 
-          <div className="flex justify-end gap-3 mt-4">
-            <button
-              type="submit"
-              className="px-6 py-2 rounded-xl bg-emerald-600 text-white hover:bg-emerald-700 transition"
-            >
-              Submit
-            </button>
-          </div>
-        </form>
+        {/* Horizontal Scrollable Ideas */}
+        <div className="flex gap-4 overflow-x-auto pb-2">
+          {filteredIdeas.length > 0 ? (
+            filteredIdeas.map((idea) => (
+              <div
+                key={idea.ideaId}
+                className="flex-shrink-0 w-64 border border-gray-300 rounded-2xl p-4 flex flex-col justify-between hover:shadow-md transition"
+              >
+                <div className="space-y-1">
+                  <h3 className="font-semibold text-gray-800">{idea.title}</h3>
+                  <p className="text-xs text-gray-500">
+                    {idea.author.name} • {idea.author.college}
+                  </p>
+
+                  <span className="inline-block mt-1 text-xs px-2 py-0.5 rounded-full bg-gray-100 text-gray-600">
+                    {idea.category}
+                  </span>
+                </div>
+
+                <div className="flex justify-between items-center mt-3">
+                  {/* View Description */}
+                  <button
+                    onClick={() => setSelectedIdea(idea)}
+                    className="text-gray-500 hover:text-emerald-600"
+                    title="View description"
+                  >
+                    <AiOutlineEye size={22} />
+                  </button>
+
+                  {/* Vote */}
+                  <button
+                    onClick={() => toggleVote(idea.ideaId)}
+                    className="flex flex-col items-center text-emerald-600"
+                  >
+                    {idea.hasVoted ? (
+                      <AiFillLike size={24} />
+                    ) : (
+                      <AiOutlineLike size={24} />
+                    )}
+                    <span className="text-xs">{idea.votes}</span>
+                  </button>
+                </div>
+              </div>
+            ))
+          ) : (
+            <p className="text-gray-500 text-center mt-6">No ideas found</p>
+          )}
+        </div>
+      </div>
+
+      {selectedIdea && (
+        <IdeaDescriptionModal
+          idea={selectedIdea}
+          onClose={() => setSelectedIdea(null)}
+        />
       )}
+
+      {/* ================= ENROLLMENT FORM ================= */}
+      <EnrollmentForm domains={event.eventMeta.domains} />
+    </div>
+  );
+}
+
+/* ---------- SMALL COMPONENTS ---------- */
+function Meta({ label, value }) {
+  return (
+    <div className="bg-gray-100 rounded-xl p-4 text-center">
+      <p className="text-xs text-gray-500">{label}</p>
+      <p className="font-semibold text-gray-800">{value}</p>
     </div>
   );
 }

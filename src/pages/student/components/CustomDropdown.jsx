@@ -22,7 +22,7 @@ export default function CustomDropdown({ label, options, value, onChange }) {
 
   return (
     <div className="relative " ref={dropdownRef}>
-      <label className="block text-gray-700 font-medium mb-1">{label}</label>
+      {/* <label className="block text-gray-700 font-medium mb-1">{label}</label> */}
       <div
         className="bg-white border border-gray-300 rounded-lg p-2 flex justify-between items-center cursor-pointer shadow-sm hover:border-gray-400 transition"
         onClick={() => setOpen(!open)}

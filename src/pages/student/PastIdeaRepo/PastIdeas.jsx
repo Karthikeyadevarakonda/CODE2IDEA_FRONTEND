@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import { AiOutlineRobot } from "react-icons/ai";
 import { FaServer } from "react-icons/fa";
-import CustomDropdown from "./components/CustomDropdown";
+import CustomDropdown from "../components/CustomDropdown";
 import { AiOutlineSearch, AiOutlineFolder } from "react-icons/ai";
 import { AiOutlineBulb } from "react-icons/ai";
+import PastIdeaCard from "./PastIdeaCard";
+
 export default function PastIdeas() {
   const [ideas, setIdeas] = useState([]);
   const [search, setSearch] = useState("");
@@ -26,13 +28,14 @@ export default function PastIdeas() {
   }, []);
 
   const filteredIdeas = ideas.filter((idea) => {
-    const matchesSearch = idea.title
-      .toLowerCase()
-      .includes(search.toLowerCase());
+    const text = `${idea.title} ${idea.description}`.toLowerCase();
+
+    const matchesSearch = text.includes(search.toLowerCase());
     const matchesCategory = category
       ? idea.categories.includes(category)
       : true;
     const matchesTag = activeTag ? idea.categories.includes(activeTag) : true;
+
     return matchesSearch && matchesCategory && matchesTag;
   });
 
@@ -109,30 +112,7 @@ export default function PastIdeas() {
       {/* Ideas List */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredIdeas.map((idea) => (
-          <div
-            key={idea.ideaId}
-            className="bg-white rounded-3xl shadow-lg p-6 flex flex-col justify-between transition transform hover:scale-[1.02] hover:shadow-2xl cursor-pointer"
-          >
-            <div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-1">
-                {idea.title}
-              </h3>
-              <p className="text-gray-500 text-sm">
-                {idea.department} • {idea.contestYear}
-              </p>
-            </div>
-
-            <div className="flex flex-wrap gap-2 mt-4">
-              {idea.categories.map((c) => (
-                <span
-                  key={c}
-                  className="text-xs bg-gray-100 px-3 py-1 rounded-full flex items-center gap-1 font-medium"
-                >
-                  {tagIcons[c] || ""} {c}
-                </span>
-              ))}
-            </div>
-          </div>
+          <PastIdeaCard key={idea.ideaId} idea={idea} tagIcons={tagIcons} />
         ))}
 
         {filteredIdeas.length === 0 && (

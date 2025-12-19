@@ -1,0 +1,115 @@
+{
+  "liveEvents": [
+    {
+      "contestId": 101,
+      "title": "Smart India Hackathon 2025",
+      "bannerMessage": "🚀 Smart India Hackathon 2025 is LIVE!",
+      "imageUrl": "https://d8it4huxumps7.cloudfront.net/files/ohf-listing-new.jpg?d=360x360",
+      "status": "LIVE",
+
+      "eventMeta": {
+        "startDate": "2025-01-10",
+        "endDate": "2025-01-20",
+        "submissionDeadline": "2025-01-15",
+        "totalRegistrations": 124,
+        "domains": ["AI", "IoT", "Smart City", "HealthTech"]
+      },
+
+      "description": "Smart India Hackathon is India’s largest innovation challenge where students collaborate to solve real-world problems using cutting-edge technologies. Participants submit innovative ideas and working prototypes to compete at a national level.",
+
+      "ideas": [
+        {
+          "ideaId": 301,
+          "title": "AI Traffic Congestion Predictor",
+          "author": {
+            "name": "Rahul Sharma",
+            "department": "CSE",
+            "college": "ABC Institute of Technology"
+          },
+          "category": "AI",
+          "description": "This project leverages machine learning models trained on historical traffic data and real-time sensor inputs to predict congestion hotspots. Authorities can dynamically adjust traffic signals and reduce urban congestion.",
+          "votes": 18,
+          "hasVoted": false,
+          "submittedAt": "2025-01-11"
+        },
+        {
+          "ideaId": 302,
+          "title": "Smart Waste Segregation System",
+          "author": {
+            "name": "Ananya Verma",
+            "department": "ECE",
+            "college": "XYZ Engineering College"
+          },
+          "category": "IoT",
+          "description": "An IoT-based smart bin system that uses sensors and computer vision to automatically segregate waste into wet and dry categories, improving recycling efficiency.",
+          "votes": 25,
+          "hasVoted": false,
+          "submittedAt": "2025-01-12"
+        },
+        {
+          "ideaId": 303,
+          "title": "Mental Health Support Chatbot",
+          "author": {
+            "name": "Karthik",
+            "department": "CSE",
+            "college": "ABC Institute of Technology"
+          },
+          "category": "HealthTech",
+          "description": "A conversational AI chatbot that provides early mental health support to students by analyzing sentiment and stress indicators from conversations.",
+          "votes": 12,
+          "hasVoted": false,
+          "submittedAt": "2025-01-13"
+        }
+      ]
+    },
+
+    {
+      "contestId": 102,
+      "title": "National Innovation Challenge 2025",
+      "bannerMessage": "💡 Submit your ideas now!",
+      "imageUrl": "https://d8it4huxumps7.cloudfront.net/uploads/competition-sharable/61c16ec11d18e_SEO.jpg",
+      "status": "LIVE",
+
+      "eventMeta": {
+        "startDate": "2025-02-01",
+        "endDate": "2025-02-15",
+        "submissionDeadline": "2025-02-10",
+        "totalRegistrations": 87,
+        "domains": ["AI", "Full Stack", "FinTech"]
+      },
+
+      "description": "The National Innovation Challenge encourages students to design scalable technology solutions that address pressing societal and industrial challenges.",
+
+      "ideas": [
+        {
+          "ideaId": 401,
+          "title": "AI Resume Screening Platform",
+          "author": {
+            "name": "Neha Patel",
+            "department": "IT",
+            "college": "Global Tech University"
+          },
+          "category": "AI",
+          "description": "An AI-powered resume screening system that helps recruiters shortlist candidates by analyzing skills, experience, and role compatibility.",
+          "votes": 9,
+          "hasVoted": false,
+          "submittedAt": "2025-02-03"
+        },
+        {
+          "ideaId": 402,
+          "title": "Smart Finance Tracker",
+          "author": {
+            "name": "Amit Kumar",
+            "department": "CSE",
+            "college": "Metro Engineering College"
+          },
+          "category": "Full Stack",
+          "description": "A full-stack web application that helps users track expenses, generate reports, and get AI-driven financial insights.",
+          "votes": 14,
+          "hasVoted": false,
+          "submittedAt": "2025-02-05"
+        }
+      ]
+    }
+  ]
+}
