@@ -1,0 +1,88 @@
+{
+  "student": {
+    "id": 1,
+    "name": "Karthik",
+    "department": "CSE"
+  },
+
+  "banners": [
+  {
+    "id": 1,
+    "message": "🚀 Smart India Hackathon 2025 is LIVE!",
+    "contestId": 101,
+    "type": "LIVE",
+    "imageUrl": "https://d8it4huxumps7.cloudfront.net/files/ohf-listing-new.jpg?d=360x360"
+  },
+  {
+    "id": 2,
+    "message": "🏆 Results announced for Innovation Challenge 2024",
+    "contestId": 99,
+    "type": "RESULT",
+    "imageUrl": "https://d8it4huxumps7.cloudfront.net/uploads/images/festival/banner/63f4f1f0dc3a1_banner2.png"
+  },
+  {
+    "id": 3,
+    "message": "💡 Submit your ideas now!",
+    "contestId": 102,
+    "type": "INFO",
+    "imageUrl": "https://d8it4huxumps7.cloudfront.net/uploads/competition-sharable/61c16ec11d18e_SEO.jpg"
+  }
+]
+,
+  "achievements": [
+    {
+      "contest": "Innovation Challenge 2024",
+      "rank": 2,
+      "certificateUrl": "/certificates/ic2024.pdf"
+    }
+  ],
+
+  "enrolledEvents": {
+    "live": [
+      {
+        "contestId": 101,
+        "title": "Smart India Hackathon 2025",
+        "status": "LIVE",
+        "submissionEnd": "2025-09-10",
+        "idea": {
+          "id": 201,
+          "title": "AI Crop Disease Detection",
+          "status": "EDIT_ALLOWED",
+          "votes": 12,
+          "averageScore": 42.5,
+          "isGreen": true
+        }
+      }
+    ],
+    "past": [
+      {
+        "contestId": 99,
+        "title": "Innovation Challenge 2024",
+        "status": "ARCHIVED",
+        "idea": {
+          "id": 180,
+          "title": "Smart Water Monitoring",
+          "finalScore": 44.0,
+          "rank": 2
+        }
+      }
+    ]
+  },
+
+  "pastIdeasRepository": [
+    {
+      "ideaId": 150,
+      "title": "IoT Waste Management",
+      "contestYear": 2023,
+      "department": "ECE",
+      "categories": ["IoT", "Smart City"]
+    },
+    {
+      "ideaId": 151,
+      "title": "AI Mental Health Assistant",
+      "contestYear": 2024,
+      "department": "CSE",
+      "categories": ["AI", "HealthTech"]
+    }
+  ]
+}
