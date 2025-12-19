@@ -6,7 +6,6 @@ export default function Achievements({ achievements }) {
       <h2 className="text-xl font-semibold mb-6 flex items-center gap-2 text-gray-800">
         🏆 Achievements
       </h2>
-
       <div className="flex flex-col gap-3">
         {achievements.map((a, i) => (
           <div

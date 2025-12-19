@@ -5,7 +5,7 @@ export default function EnrolledEvents({ events }) {
         🏅 Enrolled Events
       </h2>
 
-      {/* Live Events */}
+      {/* Live */}
       <h3 className="font-medium text-emerald-600 mb-4 flex items-center gap-1">
         🔴 Live
       </h3>
@@ -26,7 +26,7 @@ export default function EnrolledEvents({ events }) {
         ))}
       </div>
 
-      {/* Past Events */}
+      {/* Past */}
       <h3 className="font-medium text-gray-600 mt-6 mb-4 flex items-center gap-1">
         ⏮ Past
       </h3>

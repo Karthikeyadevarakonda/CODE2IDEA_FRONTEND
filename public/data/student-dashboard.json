@@ -17,14 +17,14 @@
     "id": 2,
     "message": "🏆 Results announced for Innovation Challenge 2024",
     "contestId": 99,
-    "type": "RESULT",
-    "imageUrl": "https://d8it4huxumps7.cloudfront.net/uploads/images/festival/banner/63f4f1f0dc3a1_banner2.png"
+    "type": "LIVE",
+    "imageUrl": "https://www.knowafest.com/files/uploads/UNSTOP%20BANNER-2024030409.png"
   },
   {
     "id": 3,
     "message": "💡 Submit your ideas now!",
     "contestId": 102,
-    "type": "INFO",
+    "type": "LIVE",
     "imageUrl": "https://d8it4huxumps7.cloudfront.net/uploads/competition-sharable/61c16ec11d18e_SEO.jpg"
   }
 ]
