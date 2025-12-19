@@ -72,7 +72,7 @@ export default function Achievements({ achievements, name }) {
   };
 
   return (
-    <div className="bg-white p-6 rounded-2xl shadow-md">
+    <div className="bg-white p-6 sm:rounded-2xl sm:shadow-md">
       <h2 className="text-xl font-semibold mb-6 flex items-center gap-2 text-gray-800">
         🏆 Achievements
       </h2>

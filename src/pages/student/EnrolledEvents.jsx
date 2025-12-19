@@ -18,7 +18,7 @@ export default function EnrolledEvents({ events }) {
             <p className="font-semibold text-gray-800 flex items-center gap-2">
               🟢 {e.title}
             </p>
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-gray-500 truncate">
               💡 Idea: {e.idea.title} • 📊 Votes: {e.idea.votes} • ⭐ Avg Score:{" "}
               {e.idea.averageScore}
             </p>
