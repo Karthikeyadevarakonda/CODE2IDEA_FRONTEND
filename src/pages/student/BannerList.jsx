@@ -32,7 +32,7 @@ export default function BannerList({ banners, onBannerClick }) {
         {banners.map((b) => (
           <div
             key={b.contestId}
-            className="min-w-full h-[120px] sm:h-[240px] md:h-[320px] relative"
+            className="min-w-full h-[160px] sm:h-[240px] md:h-[320px] relative"
             onClick={() => onBannerClick?.(b)}
           >
             <img
