@@ -18,7 +18,7 @@ export default function PastIdeaDetails() {
   const [previewPdf, setPreviewPdf] = useState(null);
 
   useEffect(() => {
-    fetch("/data/student-dashboard.json")
+    fetch("/data/past-idea.json")
       .then((res) => res.json())
       .then((data) => {
         const found = data.pastIdeasRepository.find(

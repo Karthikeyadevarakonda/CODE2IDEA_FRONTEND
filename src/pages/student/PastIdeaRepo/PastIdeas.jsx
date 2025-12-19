@@ -85,7 +85,7 @@ export default function PastIdeas() {
         {categories.map((cat) => (
           <button
             key={cat}
-            className={`flex items-center gap-1 px-4 py-1.5 sm:px-6 sm:py-2 text-sm sm:text-base rounded-md sm:rounded-full border transition-all transform hover:scale-105 shadow-sm flex-shrink-0 ${
+            className={`flex items-center gap-1 px-4 py-2.5 sm:px-6 sm:py-2 text-sm sm:text-base rounded-md sm:rounded-full border transition-all transform hover:scale-105 shadow-sm flex-shrink-0 ${
               activeTag === cat
                 ? "bg-emerald-600 text-white border-emerald-600"
                 : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100"
