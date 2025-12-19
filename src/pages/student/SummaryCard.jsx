@@ -12,20 +12,18 @@ export default function SummaryCard({ title, value }) {
   };
 
   return (
-    <div className="relative bg-white rounded-2xl shadow-md p-6 flex overflow-x-auto items-center justify-center gap-4 hover:shadow-xl transition-shadow transform hover:-translate-y-1">
-      {/* Icon with colored background */}
-      <div className={`p-4 rounded-full ${colors[title]} text-3xl`}>
+    <div
+      className="min-w-[220px] relative bg-white shadow sm:rounded-2xl sm:shadow-md 
+      p-3 sm:p-6 flex  items-center gap-4 hover:shadow-xl transition"
+    >
+      <div className={`p-3 rounded-full ${colors[title]} text-3xl`}>
         {icons[title] || "📊"}
       </div>
 
-      {/* Title */}
-      <p className="text-gray-500 text-sm font-semibold">{title}</p>
-
-      {/* Value */}
-      <p className="text-3xl font-extrabold text-gray-800">{value}</p>
-
-      {/* Optional subtle background accent */}
-      <div className="absolute -top-6 -right-6 w-16 h-16 rounded-full bg-gray-100 opacity-30 mix-blend-multiply" />
+      <div>
+        <p className="text-gray-500 text-sm font-semibold">{title}</p>
+        <p className="text-3xl font-extrabold text-gray-800">{value}</p>
+      </div>
     </div>
   );
 }

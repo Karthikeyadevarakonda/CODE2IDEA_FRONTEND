@@ -29,13 +29,39 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 p-2 md:p-10 space-y-8">
+    <div className="min-h-screen bg-gray-50 p-4 md:p-10 space-y-8">
       <StudentHeader student={data.student} />
 
       {/* LIVE EVENTS BANNERS */}
       <BannerList banners={liveEvents} onBannerClick={handleBannerClick} />
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {/* ================= SUMMARY CARDS ================= */}
+
+      {/* MOBILE → infinite scroll */}
+
+      {/* MOBILE – infinite auto scroll */}
+      <div className="md:hidden scroll-wrapper">
+        <div className="scroll-track">
+          {/* FIRST SET */}
+          <SummaryCard title="Live Events" value={liveEvents.length} />
+          <SummaryCard
+            title="Past Events"
+            value={data.enrolledEvents.past.length}
+          />
+          <SummaryCard title="Achievements" value={data.achievements.length} />
+
+          {/* DUPLICATE SET (seamless loop) */}
+          <SummaryCard title="Live Events" value={liveEvents.length} />
+          <SummaryCard
+            title="Past Events"
+            value={data.enrolledEvents.past.length}
+          />
+          <SummaryCard title="Achievements" value={data.achievements.length} />
+        </div>
+      </div>
+
+      {/* DESKTOP → grid */}
+      <div className="hidden md:grid md:grid-cols-3 gap-6">
         <SummaryCard title="Live Events" value={liveEvents.length} />
         <SummaryCard
           title="Past Events"
@@ -45,7 +71,10 @@ export default function Dashboard() {
       </div>
 
       <EnrolledEvents events={data.enrolledEvents} />
-      <Achievements achievements={data.achievements} name={data.student.name} />
+      <Achievements
+        achievements={data.achievements}
+        studentName={data.student.name}
+      />
       <PastIdeas />
     </div>
   );

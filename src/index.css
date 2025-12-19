@@ -25,3 +25,28 @@
   scrollbar-width: thin;
   scrollbar-color: var(--scrollbar-thumb, #ffffff) var(--scrollbar-track, #f1f2f4);
 }
+
+
+
+@media (max-width: 768px) {
+  .scroll-wrapper {
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .scroll-track {
+    display: flex;
+    gap: 1rem;
+    width: max-content;
+    animation: scroll-left 16s linear infinite;
+  }
+
+  @keyframes scroll-left {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
